@@ -1,0 +1,57 @@
+<html>
+
+<head>
+  <title>Creating Blog Page - detail</title>
+   <link rel="stylesheet" href="/public/style.css">
+     <style>
+        html {
+            font-size: 62.5%;
+        }
+    </style>
+</head>
+
+<body>
+  <!-- NavBar -->
+   <nav class="navbar">
+    <div class="logo">
+      <a href="/">
+        <img src="/public/assets/logo.png" alt="logo" />
+      </a>
+    </div>
+
+
+     <div class="navigasi">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="blog"  style="font-weight: bold; border-bottom: 1px solid white;">Blog</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="button-contact">
+            <a href="form"> Contact Me </a>
+        </div>
+  </nav>
+
+
+  <!-- Blog -->
+   {{#each blogs}}
+   <div class="blog-detail">
+      <div class="blog-detail-container">
+         
+        <h1>{{this.title}}</h1>
+        <div class="author">{{this.postAt}} | Agung Prasetya Jati</div>
+        <img src="../public/assets/blog-img-detail.png" alt="detail" />
+        <p>
+          {{this.content}}
+        </p>
+       
+      </div>
+    </div>
+        {{/each}}
+</body>
+
+</html>

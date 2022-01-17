@@ -1,0 +1,94 @@
+<html>
+
+<head>
+  <title>Creating Blog Page</title>
+   <link rel="stylesheet" href="/public/style.css">
+     <style>
+        html {
+            font-size: 62.5%;
+        }
+    </style>
+</head>
+
+<body>
+  <!-- NavBar -->
+  <!-- Navbar Start -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="/">
+        <img src="/public/assets/logo.png" alt="logo" />
+      </a>
+    </div>
+
+
+     <div class="navigasi">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="blog" style="font-weight: bold; border-bottom: 1px solid white;">Blog</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="button-contact">
+            <a href="form"> Contact Me </a>
+        </div>
+  </nav>
+
+  <!-- Navbar End -->
+
+  <!-- Blog -->
+  <!-- Form -->
+  <div class="blog">
+     {{#if isLogin}}
+    <div style="padding-top: 150px; margin-left: 133px; margin-bottom: -70px;">
+            <a href="add-blog" style="padding: 10px; background-color: red; text-decoration: none; font-size: 1.2rem; color: white; border-radius: 3px;"> Create New Blog </a>
+        </div>
+         {{/if}}
+    <div id="contents" class="blog-list" style="padding-top: 80px;">
+      <!-- dynamic content would be here -->
+        {{!-- button --}}
+         {{#each blogs}}
+      <div class="blog-list-item">
+        <div class="blog-image">
+          <img src="/public/assets/blog-img.png" style="width: 100%" alt="" />
+        </div>
+        <div class="blog-content">
+            {{#if ../isLogin}}
+                <div class="btn-group"> 
+                  <span class="create-index"></span>
+                  <a href="/edit-blog/{{this.id}}" class="btn-edit">Edit Post</a>
+                  <a href="/delete-blog/{{this.id}}" class="btn-post">Delete Blog</a>
+                </div>
+              {{/if}}
+
+              <h1>
+                <a href="/blog-detail/{{this.id}}" target="_blank"
+                  >{{this.title}}</a
+                >
+              </h1>
+              <div class="detail-blog-content">
+                {{this.postAt}} | Agung Prasetya Jati
+              </div>
+              <p>
+                {{this.content}}
+              </p>
+
+              <div style="text-align: right;">
+                  <span style="font-size: 13px; color: grey">
+                    1 hours ago
+                  </span>
+              </div>
+
+            </div>
+          </div>
+        {{/each}}
+    </div>
+  </div>
+  <script>
+  </script>
+</body>
+
+</html>
